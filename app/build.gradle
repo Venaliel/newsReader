@@ -1,0 +1,163 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.firebase.crashlytics'
+}
+
+android {
+    compileSdk 33
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.2"
+    }
+
+    defaultConfig {
+        def androidVersionCode = 1
+        def androidVersionName = "1.0.0"
+
+        applicationId "org.newsReader.app"
+        minSdk 27
+        targetSdk 33
+        versionCode androidVersionCode
+        versionName "$androidVersionName"
+        buildConfigField "int", "ANDROID_VERSION_CODE", "$androidVersionCode"
+        buildConfigField "String", "ANDROID_VERSION_NAME", "\"$androidVersionName\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+    }
+
+
+    flavorDimensions "version"
+    productFlavors {
+
+        dev {
+            dimension "version"
+            versionNameSuffix "-dev"
+            buildConfigField "String", "BASE_API_URL", '"https://newsapi.org/"'
+            buildConfigField "String", "BASE_API_KEY", '"6edae5c4d571456dbe152d2233dcaed7"'
+        }
+
+        preprod {
+            dimension "version"
+            versionNameSuffix "-preprod"
+            buildConfigField "String", "BASE_API_URL", '"https://newsapi.org/"'
+            buildConfigField "String", "BASE_API_KEY", '"6edae5c4d571456dbe152d2233dcaed7"'
+        }
+
+        prod {
+            dimension "version"
+            buildConfigField "String", "BASE_API_URL", '"https://newsapi.org/"'
+            buildConfigField "String", "BASE_API_KEY", '"6edae5c4d571456dbe152d2233dcaed7"'
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    def room_version = "2.4.3"
+    def retrofit_version = "2.9.0"
+    def koin_version = '3.4.5'
+    def okHttp = "4.10.0"
+    def accompanist_version = "0.30.1"
+    def glide_version = "2.2.2"
+    def compose_version = "1.4.0-beta02"
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.android.support:multidex:1.0.3'
+
+
+    // db
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // network
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okHttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttp"
+    implementation "com.squareup.okio:okio:1.13.0"
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+
+    // koin
+    implementation "io.insert-koin:koin-androidx-compose:$koin_version"
+
+
+    // logs
+    implementation 'com.orhanobut:logger:2.2.0'
+
+    //glide
+    implementation "com.github.skydoves:landscapist-glide:$glide_version"
+    implementation "com.github.skydoves:landscapist-placeholder:$glide_version"
+
+    // animation
+    implementation("com.airbnb.android:lottie-compose:4.2.2")
+
+    //jetpack compose
+    implementation "androidx.activity:activity-compose:1.4.0"
+
+    implementation("androidx.compose.ui:ui:$compose_version")
+    implementation("androidx.compose.ui:ui-viewbinding:$compose_version")
+
+    // Tooling support (Previews, etc.)
+    implementation("androidx.compose.ui:ui-tooling:$compose_version")
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation("androidx.compose.foundation:foundation:$compose_version")
+    // Material Design
+    implementation("androidx.compose.material:material:$compose_version")
+    // Material design icons
+    implementation("androidx.compose.material:material-icons-core:$compose_version")
+    implementation("androidx.compose.material:material-icons-extended:$compose_version")
+    // Integration with observables
+    implementation("androidx.compose.runtime:runtime-livedata:$compose_version")
+    implementation("androidx.compose.runtime:runtime-rxjava2:$compose_version")
+
+
+    //todo: check if all accompanist libs are needed
+
+    //accompanist
+    implementation "com.google.accompanist:accompanist-navigation-animation:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-navigation-material:$accompanist_version"
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:30.0.2')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-messaging'
+
+
+    //paging
+    implementation 'androidx.paging:paging-compose:1.0.0-alpha18'
+
+
+
+}

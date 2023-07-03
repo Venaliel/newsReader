@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "620484188434",
+    "project_id": "newsreader-cdabc",
+    "storage_bucket": "newsreader-cdabc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620484188434:android:da71ecf6e6941349ae7bcb",
+        "android_client_info": {
+          "package_name": "org.newsReader.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620484188434-r7sbvhecavkv1j5so7jvvbttlljsb2b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhjh7QIUmzKBCQHiIrd1f1pRW6zx3gv_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620484188434-r7sbvhecavkv1j5so7jvvbttlljsb2b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

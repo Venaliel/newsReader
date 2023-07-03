@@ -1,0 +1,24 @@
+stages:
+  - example
+
+variables:
+  LC_ALL: "fr_FR.UTF-8"
+  LANG: "fr_FR.UTF-8"
+
+before_script:
+  - bundle install --path vendor/bundle
+  - export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home/
+  - export ANDROID_SDK_ROOT=/Users/macmini1/Library/Android/sdk
+
+
+example:
+  dependencies: []
+  stage: beta
+  script:
+    - bundle exec fastlane beta
+  tags:
+    - android
+  only:
+    - main
+
+
