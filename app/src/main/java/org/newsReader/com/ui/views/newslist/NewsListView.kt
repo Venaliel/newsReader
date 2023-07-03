@@ -30,7 +30,6 @@ fun NewsListView(
     dataViewModel: DataViewModel = getViewModel(),
 ) {
 
-
     val context = LocalContext.current
     var basicError = stringResource(R.string.basic_error)
 

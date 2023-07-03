@@ -22,8 +22,8 @@ platform :android do
     gradle(task: "test")
   end
 
-  desc "Submit a new Beta Build from dev to firebase"
-  lane :beta do
+  desc "Submit a new Example Build from dev to firebase"
+  lane :example do
 
         gradle(
             task: "clean assemble",

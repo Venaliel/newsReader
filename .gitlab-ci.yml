@@ -11,11 +11,11 @@ before_script:
   - export ANDROID_SDK_ROOT=/Users/macmini1/Library/Android/sdk
 
 
-example:
+beta:
   dependencies: []
-  stage: beta
+  stage: example
   script:
-    - bundle exec fastlane beta
+    - bundle exec fastlane example
   tags:
     - android
   only:
