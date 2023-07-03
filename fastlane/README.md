@@ -23,13 +23,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Runs all the tests
 
-### android beta
+### android example
 
 ```sh
-[bundle exec] fastlane android beta
+[bundle exec] fastlane android example
 ```
 
-Submit a new Beta Build from dev to firebase
+Submit a new Example Build from dev to firebase
 
 ----
 

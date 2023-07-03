@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -36,7 +37,11 @@ fun NewsListView(
     val newsListItems: LazyPagingItems<News> =  dataViewModel.newsList.collectAsLazyPagingItems()
 
 
-    LazyColumn(modifier = Modifier.padding(Size.ViewPadding).padding(top= Size.Medium)){
+    LazyColumn(modifier =
+    Modifier.padding(Size.ViewPadding)
+        .padding(top= Size.Medium)
+        .testTag("NewsListView") // Used for UI testing
+    ){
 
         item{
             TopTitle(text= stringResource(R.string.news_list_title), titleStyle = H1.copy(fontSize=23.sp))

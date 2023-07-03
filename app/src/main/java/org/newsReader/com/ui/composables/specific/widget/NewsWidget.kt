@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import com.skydoves.landscapist.ImageOptions
@@ -36,7 +37,8 @@ fun NewsWidget(news: News,onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(Size.CardPadding)
-            .height(Size.CardHeight),
+            .height(Size.CardHeight)
+            .testTag("News"), //will be used in the instrumented tests
         elevation = Size.Small,
         onClick = {
             onClick.invoke()

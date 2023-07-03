@@ -34,6 +34,8 @@ import org.newsReader.com.ui.style.Typography.Companion.H1
 import org.newsReader.com.ui.style.Typography.Companion.H2
 import org.newsReader.com.viewmodels.DataViewModel
 import org.newsReader.com.R
+import org.newsReader.com.models.local.News
+import org.newsReader.com.utils.openLink
 
 
 @Composable
@@ -43,8 +45,6 @@ fun NewsDetailView(
 ) {
     val scrollState = rememberScrollState(0)
     val news = dataViewModel.livedataNews.collectAsState().value
-    val context = LocalContext.current
-    var error by remember { mutableStateOf("") }
 
 
 
@@ -55,37 +55,44 @@ fun NewsDetailView(
             titleStyle = H1,
             backButtonClick = {navController.popBackStack()})
 
-        GlideImage(
-            imageModel = { news?.urlToImage?:"" },
-            imageOptions = ImageOptions(
-                contentScale = ContentScale.FillWidth,
-            ),
-            component = rememberImageComponent {
-                +PlaceholderPlugin.Loading(painterResource(id = R.drawable.news))
-                +PlaceholderPlugin.Failure(painterResource(id = R.drawable.news))
-            },
-            modifier = Modifier
-                .fillMaxWidth(0.3f)
-                .aspectRatio(1f)
-        )
-
-        Text(text =  news?.title?:"",style=H2, modifier = Modifier.padding(Size.ViewPadding))
-
-        Text(text = news?.content?:"", modifier = Modifier.padding(Size.ViewPadding))
-
-        DefaultButton(text= stringResource(R.string.button_show_article), onClick = {
-            try {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(news?.url))
-                startActivity(context, browserIntent,null)
-            }catch ( e: Exception) {
-                error = e.message.toString()
-                Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
-            }
-        }, modifier = Modifier.padding(Size.ViewPadding), isDisabled = news?.url.isNullOrBlank())
+        NewsDetail(news = news)
 
     }
-
 
 }
 
 
+
+
+@Composable
+fun NewsDetail(news: News?) {
+    val context = LocalContext.current
+    var error by remember { mutableStateOf("") }
+
+    GlideImage(
+        imageModel = { news?.urlToImage?:"" },
+        imageOptions = ImageOptions(
+            contentScale = ContentScale.FillWidth,
+        ),
+        component = rememberImageComponent {
+            +PlaceholderPlugin.Loading(painterResource(id = R.drawable.news))
+            +PlaceholderPlugin.Failure(painterResource(id = R.drawable.news))
+        },
+        modifier = Modifier
+            .fillMaxWidth(0.3f)
+            .aspectRatio(1f)
+    )
+
+    Text(text =  news?.title?:"",style=H2, modifier = Modifier.padding(Size.ViewPadding))
+
+    Text(text = news?.content?:"", modifier = Modifier.padding(Size.ViewPadding))
+
+    DefaultButton(text= stringResource(R.string.button_show_article), onClick = {
+        try {
+            openLink(context, Uri.parse(news?.url))
+        }catch ( e: Exception) {
+            error = e.message.toString()
+            Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+        }
+    }, modifier = Modifier.padding(Size.ViewPadding), isDisabled = news?.url.isNullOrBlank())
+}

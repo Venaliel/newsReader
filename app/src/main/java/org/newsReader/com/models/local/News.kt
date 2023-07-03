@@ -24,7 +24,7 @@ class News(
     @SerializedName("urlToImage")
     val urlToImage: String?,
     @SerializedName("publishedAt")
-    val publishedAt: Date,
+    val publishedAt: Date?,
     @SerializedName("content")
     val content: String?,
 
