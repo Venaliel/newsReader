@@ -6,7 +6,10 @@ variables:
   LANG: "fr_FR.UTF-8"
 
 before_script:
-  - bundle install --path vendor/bundle
+  - bundle install --path vendor/bundle  
+  - export JAVA_HOME= \Program Files\Java\jdk-11
+  - export ANDROID_SDK_ROOT=\Users\Vincent\AppData\Local\Android\Sdk
+
 
 
 beta:
@@ -15,7 +18,7 @@ beta:
   script:
     - bundle exec fastlane example
   tags:
-    - gitlab-org
+    - android
   only:
     - main
 
