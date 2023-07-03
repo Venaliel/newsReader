@@ -17,10 +17,10 @@ android {
     }
 
     defaultConfig {
-        def androidVersionCode = 1
+        def androidVersionCode = 2
         def androidVersionName = "1.0.0"
 
-        applicationId "org.newsReader.app"
+        applicationId "org.newsReader.com"
         minSdk 27
         targetSdk 33
         versionCode androidVersionCode
