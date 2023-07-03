@@ -17,7 +17,7 @@ beta:
   script:
     - bundle exec fastlane example
   tags:
-    - android
+    - gitlab-org
   only:
     - main
 
