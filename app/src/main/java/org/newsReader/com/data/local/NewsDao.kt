@@ -14,11 +14,14 @@ interface NewsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(news: List<News>)
 
-    @Query("SELECT * FROM news ORDER BY id DESC")
-    fun getLiveNews(): LiveData<List<News>>
+    @Query("SELECT * FROM news ORDER BY publishedAt DESC LIMIT 10")
+    fun getListNews(): List<News>
 
     @Query("DELETE FROM news")
     fun deleteNews()
+
+    @Query("DELETE FROM news WHERE id = :newsId")
+    fun deleteNews(newsId: Int)
 
     @Transaction
     fun upsertNews(news: List<News>) {

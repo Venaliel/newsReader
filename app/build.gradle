@@ -147,15 +147,9 @@ dependencies {
     implementation("androidx.compose.foundation:foundation:$compose_version")
     // Material Design
     implementation("androidx.compose.material:material:$compose_version")
-    // Material design icons
-    implementation("androidx.compose.material:material-icons-core:$compose_version")
-    implementation("androidx.compose.material:material-icons-extended:$compose_version")
     // Integration with observables
     implementation("androidx.compose.runtime:runtime-livedata:$compose_version")
     implementation("androidx.compose.runtime:runtime-rxjava2:$compose_version")
-
-
-    //todo: check if all accompanist libs are needed
 
     //accompanist
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
@@ -164,7 +158,6 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:32.1.1')
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-messaging'
 
 
     //paging

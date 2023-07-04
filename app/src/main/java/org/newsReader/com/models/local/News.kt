@@ -7,10 +7,10 @@ import com.google.gson.annotations.SerializedName
 import java.util.Date
 
 @Entity(tableName = "news")
-class News(
+data class News(
     @PrimaryKey
     @SerializedName("id")
-    val id: Int,
+    val id: String,
     @SerializedName("source")
     val source: Source?,
     @SerializedName("author")
@@ -27,7 +27,6 @@ class News(
     val publishedAt: Date?,
     @SerializedName("content")
     val content: String?,
-
 )
 
 data class Source(
