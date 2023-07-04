@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MainScreenView() {
         val navController = rememberNavController()
-        Box() {
+        Box {
             Scaffold(
                 backgroundColor = Color.Transparent,
             ) { innerPadding ->
@@ -62,12 +62,9 @@ fun MainScreenView() {
                     modifier = Modifier.padding(innerPadding),
                     contentAlignment = Alignment.BottomEnd,
                 ) {
-
-
                     NavigationGraph(
                         navController = navController
                     )
-
                 }
             }
     }
