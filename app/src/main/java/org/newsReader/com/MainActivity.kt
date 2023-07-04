@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -19,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.core.view.WindowCompat
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import org.newsReader.com.ui.style.GeneralTheme
 import java.util.*
@@ -30,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.S)
     @ExperimentalUnitApi
     @ExperimentalFoundationApi
-    @ExperimentalAnimationApi
     @ExperimentalMaterialApi
     @ExperimentalComposeUiApi
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,13 +48,11 @@ class MainActivity : AppCompatActivity() {
 @RequiresApi(Build.VERSION_CODES.S)
 @ExperimentalUnitApi
 @ExperimentalFoundationApi
-@ExperimentalAnimationApi
 @ExperimentalMaterialApi
 @ExperimentalComposeUiApi
 @Composable
 fun MainScreenView() {
-    val navController = rememberAnimatedNavController()
-
+        val navController = rememberNavController()
         Box() {
             Scaffold(
                 backgroundColor = Color.Transparent,

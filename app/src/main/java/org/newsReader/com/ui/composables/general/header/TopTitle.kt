@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import org.newsReader.com.R
@@ -28,7 +29,7 @@ fun TopTitle(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(HeaderPadding)
+            .padding(HeaderPadding).testTag("TopTitle")
             .then(modifier),
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically

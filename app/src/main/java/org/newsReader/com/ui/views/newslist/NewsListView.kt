@@ -36,7 +36,6 @@ fun NewsListView(
 
     val newsListItems: LazyPagingItems<News> =  dataViewModel.newsList.collectAsLazyPagingItems()
 
-
     LazyColumn(modifier =
     Modifier.padding(Size.ViewPadding)
         .padding(top= Size.Medium)

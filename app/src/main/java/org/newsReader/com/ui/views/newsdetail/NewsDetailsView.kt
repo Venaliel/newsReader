@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.core.content.ContextCompat.startActivity
@@ -48,7 +49,7 @@ fun NewsDetailView(
 
 
 
-    Column(modifier = Modifier.padding(Size.ViewPadding).verticalScroll(scrollState).padding(top= Medium),
+    Column(modifier = Modifier.padding(Size.ViewPadding).verticalScroll(scrollState).padding(top= Medium).testTag("NewsDetailView"),
     horizontalAlignment = CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Medium)) {
 
         TopTitle(text= stringResource(R.string.news_title) + news?.author?.let {authorName -> stringResource(R.string.from_author,authorName)},
@@ -80,7 +81,7 @@ fun NewsDetail(news: News?) {
         },
         modifier = Modifier
             .fillMaxWidth(0.3f)
-            .aspectRatio(1f)
+            .aspectRatio(1f).testTag("NewsDetailImage")
     )
 
     Text(text =  news?.title?:"",style=H2, modifier = Modifier.padding(Size.ViewPadding))
@@ -94,5 +95,5 @@ fun NewsDetail(news: News?) {
             error = e.message.toString()
             Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
         }
-    }, modifier = Modifier.padding(Size.ViewPadding), isDisabled = news?.url.isNullOrBlank())
+    }, modifier = Modifier.padding(Size.ViewPadding).testTag("redirectionNews"), isDisabled = news?.url.isNullOrBlank())
 }
