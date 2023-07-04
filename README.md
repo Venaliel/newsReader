@@ -32,6 +32,7 @@ feedbacks are welcome.
 - [ ] Add a splash screen
 - [ ] Update News details screen UI
 - [ ] Add a loading indicator when fetching news
+- [ ] Day and night theme
 
 
 **Usage of Database:**
