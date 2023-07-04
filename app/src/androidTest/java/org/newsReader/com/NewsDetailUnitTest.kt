@@ -14,10 +14,8 @@ import org.newsReader.com.ui.style.GeneralTheme
 import org.newsReader.com.ui.views.newsdetail.NewsDetail
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+ * Example NewsDetailUnitTest, which will execute on the emulator from developpement machine (host).
+ **/
 
 class NewsDetailUnitTest {
 
@@ -30,7 +28,7 @@ class NewsDetailUnitTest {
     fun setUp() {
         composeRuleGeneric.setContent {
             GeneralTheme {
-                NewsDetail(News(0,
+                NewsDetail(News("id_string",
                     Source("source_id","source_name"),"author", "title", "url", "urlToImage", "https://www.amazingtalker.fr/questions/907",null,"loremp ipsum"))
             }
         }

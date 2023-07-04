@@ -1,6 +1,5 @@
 package org.newsReader.com.data.local
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import org.newsReader.com.models.local.News
 
@@ -21,7 +20,7 @@ interface NewsDao {
     fun deleteNews()
 
     @Query("DELETE FROM news WHERE id = :newsId")
-    fun deleteNews(newsId: Int)
+    fun deleteNews(newsId: String)
 
     @Transaction
     fun upsertNews(news: List<News>) {

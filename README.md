@@ -16,14 +16,17 @@ feedbacks are welcome.
 - [x] Room for local database
 - [x] Coroutines for asynchronous calls
 - [x] Unit tests with compose
-- [x] Fastlane for fast deployment
 - [x] Firebase for crashlytics
 - [x] Firebase for app distribution
 - [x] paging for pagination of news data
 - [x] landscapist for image loading (and placeholder)
 - [x] Multiple gradle variants for different environments
 - [x] Language variants (English and French)
+- [x] Fetch news based on Locale Country
 
+**Ci/CD:**
+- [x] Fastlane for fast deployment
+- [X] setup a CI/CD action to build the app when pushed to the repo
 
 
 ## What's Left
@@ -40,8 +43,6 @@ feedbacks are welcome.
 - [ ] Add a "favorite" button to the news details screen
 - [ ] Add all  "favorite" news on top of all the news
 
-**Ci/CD:**
-- [ ] setup a CI/CD runner to build and test the app when pushed to the repo
 
 ## Authors and acknowledgment
 Vincent Tannir

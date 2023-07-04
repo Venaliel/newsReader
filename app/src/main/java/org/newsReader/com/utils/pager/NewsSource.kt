@@ -18,7 +18,7 @@ class NewsSource(  private val service: RemoteService,) : PagingSource<Int, News
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, News> {
         return try {
             val nextPage = params.key ?: 1
-            var currentLanguage = Locale.getDefault().language
+            val currentLanguage = Locale.getDefault().country
             val userList = service.getNewsList(page=nextPage, pageSize = 5, sources = currentLanguage)
             val response = userList.body()?.newsList ?: emptyList()
             val nextKey = if (response.isEmpty()) {

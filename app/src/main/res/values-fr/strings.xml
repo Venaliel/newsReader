@@ -18,7 +18,7 @@
 
     <!-- ____________________ News List ____________________ -->
     <string name="sign_in">Se connecter</string>
-    <string name="news_list_title">News List</string>
+    <string name="news_list_title">Liste d\'article</string>
 
     <!-- ____________________ News Detail ____________________ -->
     <string name="from_author">de %1$s</string>

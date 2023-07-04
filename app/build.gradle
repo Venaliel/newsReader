@@ -5,6 +5,12 @@ plugins {
     id 'com.google.firebase.crashlytics'
 }
 
+// execute android tests before realising a new apk
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleRelease')
+        task.dependsOn('connectedAndroidTest')
+}
+
 android {
     compileSdk 33
 
@@ -17,7 +23,7 @@ android {
     }
 
     defaultConfig {
-        def androidVersionCode = 2
+        def androidVersionCode = 3
         def androidVersionName = "1.0.0"
 
         applicationId "org.newsReader.com"
@@ -28,7 +34,6 @@ android {
         buildConfigField "int", "ANDROID_VERSION_CODE", "$androidVersionCode"
         buildConfigField "String", "ANDROID_VERSION_NAME", "\"$androidVersionName\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
     }
 
     sourceSets {
@@ -79,30 +84,36 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
     androidTestImplementation 'junit:junit:4.+'
 
-    def room_version = "2.4.3"
+    def room_version = "2.5.2"
+    def app_compat_version = "1.6.1"
     def retrofit_version = "2.9.0"
     def koin_version = '3.4.5'
-    def okHttp = "4.10.0"
+    def okHttp = "4.11.0"
     def accompanist_version = "0.30.1"
     def glide_version = "2.2.2"
     def compose_version = "1.4.0-beta01"
-    def nav_version = "2.5.3"
+    def nav_version = "2.6.0"
+    def gson_version = "2.9.0"
+    def material_version = "1.9.0"
+    def activity_compose_version = "1.7.2"
+    def core_ktx_version = "1.10.1"
+    def lottie_compose_version = "4.2.2"
+    def pagging_compose_version = "1.0.0-alpha18"
+    def firebase_version = "32.1.1"
 
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 
+
+
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation "com.google.android.material:material:$material_version"
 
 
     // db
@@ -116,26 +127,22 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:okhttp:$okHttp"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttp"
-    implementation "com.squareup.okio:okio:1.13.0"
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "com.google.code.gson:gson:$gson_version"
 
 
     // koin
     implementation "io.insert-koin:koin-androidx-compose:$koin_version"
 
 
-    // logs
-    implementation 'com.orhanobut:logger:2.2.0'
-
     //glide
     implementation "com.github.skydoves:landscapist-glide:$glide_version"
     implementation "com.github.skydoves:landscapist-placeholder:$glide_version"
 
     // animation
-    implementation("com.airbnb.android:lottie-compose:4.2.2")
+    implementation "com.airbnb.android:lottie-compose:$lottie_compose_version"
 
     //jetpack compose
-    implementation "androidx.activity:activity-compose:1.6.1"
+    implementation "androidx.activity:activity-compose:$activity_compose_version"
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
     implementation("androidx.compose.ui:ui:$compose_version")
@@ -155,13 +162,13 @@ dependencies {
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
 
     //firebase
-    implementation platform('com.google.firebase:firebase-bom:32.1.1')
+    implementation platform("com.google.firebase:firebase-bom:$firebase_version")
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
 
     //paging
-    implementation 'androidx.paging:paging-compose:1.0.0-alpha18'
+    implementation "androidx.paging:paging-compose:$pagging_compose_version"
 
 
 

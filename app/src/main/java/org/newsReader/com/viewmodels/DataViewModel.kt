@@ -55,9 +55,9 @@ class DataViewModel(
     fun getDataFromApiWithManualPaging(page: Int) {
         viewModelScope.launch {
             isLoading.value = true
-            var currentLanguage = Locale.getDefault().language
+            val currentCountry = Locale.getDefault().country
 
-            dataResultNewsList.value = dataRepository.getNewsListFromApi(page,currentLanguage)
+            dataResultNewsList.value = dataRepository.getNewsListFromApi(page,currentCountry)
 
             dataResultNewsList.value?.let {
                 if (it.status == DataResult.Status.SUCCESS) {

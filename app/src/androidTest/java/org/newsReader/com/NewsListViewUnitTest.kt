@@ -2,32 +2,20 @@ package org.newsReader.com
 
 import android.content.Context
 import androidx.annotation.ArrayRes
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.*
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.newsReader.com.models.local.News
-import org.newsReader.com.models.local.Source
 import org.newsReader.com.ui.style.GeneralTheme
-import org.newsReader.com.ui.views.newsdetail.NewsDetail
 import org.newsReader.com.ui.views.newslist.NewsListView
-import java.util.concurrent.TimeUnit
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+ * Example NewsListViewUnitTest, which will execute on the emulator from developpement machine (host)
+ **/
 
 class NewsListViewUnitTest {
 

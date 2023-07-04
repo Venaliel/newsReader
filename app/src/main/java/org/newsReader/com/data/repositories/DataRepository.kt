@@ -12,11 +12,11 @@ class DataRepository(
 
 
     /** Remote **/
-    suspend fun getNewsListFromApi(page: Int, language: String) = getResult {
+    suspend fun getNewsListFromApi(page: Int, currentCountry: String) = getResult {
         remoteService.getNewsList(
             page = page,
             pageSize = 50,
-            sources = language
+            sources = currentCountry
     ) }
 
 
@@ -30,5 +30,5 @@ class DataRepository(
         database.newsDao().getListNews()
 
     fun deleteLocalNews(id: String) =
-        database.newsDao().deleteNews()
+        database.newsDao().deleteNews(id)
 }
