@@ -75,8 +75,8 @@ fun NewsDetail(news: News?) {
             contentScale = ContentScale.FillWidth,
         ),
         component = rememberImageComponent {
-            +PlaceholderPlugin.Loading(painterResource(id = R.drawable.news))
-            +PlaceholderPlugin.Failure(painterResource(id = R.drawable.news))
+            +PlaceholderPlugin.Loading(painterResource(id = R.drawable.wallpaper))
+            +PlaceholderPlugin.Failure(painterResource(id = R.drawable.wallpaper))
         },
         modifier = Modifier
             .fillMaxWidth(0.3f)

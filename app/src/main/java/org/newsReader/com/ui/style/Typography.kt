@@ -32,11 +32,24 @@ class Typography {
             lineHeight = 20.sp,
             letterSpacing = 0.66.sp
         )
+        val H3 = TextStyle(
+            fontFamily = CIRCULAR_STD_MEDIUM,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 15.sp,
+            lineHeight = 18.sp,
+            letterSpacing = 0.60.sp
+        )
         val Body1 = TextStyle(
             fontFamily = CIRCULAR_STD_MEDIUM,
             fontWeight = FontWeight.Normal,
             fontSize = 15.sp,
             lineHeight = 24.sp
+        )
+        val Body2 = TextStyle(
+            fontFamily = CIRCULAR_STD_MEDIUM,
+            fontWeight = FontWeight.Normal,
+            fontSize = 12.sp,
+            lineHeight = 18.sp
         )
 
 

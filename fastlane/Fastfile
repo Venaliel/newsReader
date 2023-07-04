@@ -27,7 +27,7 @@ platform :android do
 
         gradle(
             task: "clean assemble",
-            build_type: 'dev'
+            build_type: 'devDebug'
         )
 
         firebase_app_distribution(

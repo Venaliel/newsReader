@@ -42,7 +42,15 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11
     }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
 
+        debug{
+            minifyEnabled false
+        }
+    }
 
     flavorDimensions "version"
     productFlavors {

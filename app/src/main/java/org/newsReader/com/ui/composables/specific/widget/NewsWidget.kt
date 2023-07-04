@@ -59,8 +59,8 @@ fun NewsWidget(news: News,onClick: () -> Unit) {
                     contentScale = ContentScale.Crop,
                 ),
                 component = rememberImageComponent {
-                    +PlaceholderPlugin.Loading(painterResource(id = R.drawable.news))
-                    +PlaceholderPlugin.Failure(painterResource(id = R.drawable.news))
+                    +PlaceholderPlugin.Loading(painterResource(id = R.drawable.wallpaper))
+                    +PlaceholderPlugin.Failure(painterResource(id = R.drawable.wallpaper))
                 },
                 modifier = Modifier
                     .weight(1f)
@@ -74,13 +74,13 @@ fun NewsWidget(news: News,onClick: () -> Unit) {
             ) {
                 Text(
                     text = news.title?:"",
-                    style = org.newsReader.com.ui.style.Typography.H2,
+                    style = org.newsReader.com.ui.style.Typography.H3,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
                     text = news.author?:"",
-                    style = org.newsReader.com.ui.style.Typography.Body1,
+                    style = org.newsReader.com.ui.style.Typography.Body2,
                 )
             }
 
