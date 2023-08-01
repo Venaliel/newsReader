@@ -12,6 +12,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.newsReader.com.ui.style.GeneralTheme
 import org.newsReader.com.ui.views.newslist.NewsListView
+import tools.fastlane.screengrab.Screengrab
 
 /**
  * Example NewsListViewUnitTest, which will execute on the emulator from developpement machine (host)
@@ -56,6 +57,7 @@ class NewsListViewUnitTest {
     @Test
     fun testListPopulated() {
         composeRuleGeneric.waitUntilAtLeastOneExists(hasTestTag("News"),10000L)
+        Screengrab.screenshot("NewsListViewUnitTest");
     }
 
     @OptIn(ExperimentalTestApi::class)

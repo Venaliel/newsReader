@@ -1,0 +1,4 @@
+locales ['fr-FR']
+clear_previous_screenshots true
+tests_apk_path 'app/build/outputs/apk/androidTest/dev/debug/app-dev-debug-androidTest.apk'
+app_apk_path 'app/build/outputs/apk/androidTest/dev/debug/app-dev-debug-androidTest.apk'

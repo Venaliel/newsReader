@@ -31,6 +31,14 @@ Runs all the tests
 
 Submit a new Example Build from dev to firebase
 
+### android build_and_screengrab
+
+```sh
+[bundle exec] fastlane android build_and_screengrab
+```
+
+Build debug and test APK for screenshots
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

@@ -103,10 +103,12 @@ dependencies {
     def lottie_compose_version = "4.2.2"
     def pagging_compose_version = "1.0.0-alpha18"
     def firebase_version = "32.1.1"
+    def fastlane_version = "2.1.1"
 
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    androidTestImplementation "tools.fastlane:screengrab:$fastlane_version"
 
 
 
